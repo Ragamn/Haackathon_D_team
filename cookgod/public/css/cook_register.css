@@ -2,9 +2,16 @@ body{
   background-color: bisque;
 }
 
-.input-file .preview {
-  background-image: url(/hoge.jpg);
+p {
+  text-align: center;
+  font-size: 40px;
 }
-.input-file input[type="file"] {
-  opacity: 0;
+
+form {
+  margin: 0 20%;
+}
+
+#submit {
+  margin: 0 auto;
+  
 }
