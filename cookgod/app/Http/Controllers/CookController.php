@@ -11,4 +11,7 @@ class CookController extends Controller
         var_dump($cooks);
         return view('index',compact('cooks'));
     }
+    public function cookregister() {
+        
+    }
 }
