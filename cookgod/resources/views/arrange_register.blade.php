@@ -6,6 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>アレンジ登録</h1>
+  <h1>アレンジ画面</h1>
+</head>
 </body>
-</html>
+
