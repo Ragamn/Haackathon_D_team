@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="{{ asset('css/cook_register.css') }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <img src="../../img/cookgod_logo.png" alt="cookgod">
+  <div class="center">
+    <img src="../../img/cookgod_logo.png" alt="cookgod">
+  </div>
   <p>料理登録</p>
   <form action="">
-    メニュー名<br>
-    <input type="text">
+    <span class="tx-md">メニュー名</span><br>
+    <input name="name" id="name" type="text">
 
+    <span class="tx-md">写真</span><br>
     <!-- フォームで選択した画像 -->
     <img id="img-preview" accept="image/*" style="max-width: 300px; max-height: 300px; display: none;">
 
     <div class="buttons">
       <!-- フォーム -->
-      <input type="file" name="logo" id="file-input" accept=".jpg, .jpeg, .png, .gif">
+      <input type="file" name="img" id="file-input" accept=".jpg, .jpeg, .png, .gif">
     </div>
-    <input type="submit" id="submit">
+    <div class="center"><input type="submit" id="submit" value="投稿"></div>
   </form>
 
   <!-- 画像プレビューjs -->
