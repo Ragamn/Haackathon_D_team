@@ -19,7 +19,7 @@ class CookController extends Controller
         ];
 
         // リクエストデータのバリデーション
-        $this->validate($request, $validate_rule);
+        $request->validate($validate_rule);
         
         // 新しいCooksモデルのインスタンスを作成
         $cook = new Cooks();
