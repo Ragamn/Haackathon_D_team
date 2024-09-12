@@ -114,10 +114,12 @@ p {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
     padding: 5px; /* 枠内の余白を追加 */
     width: 150px; /* 幅を設定 */
+    gap: 10px;
 }
 
 .material-input2 {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
     padding: 5px; /* 枠内の余白を追加 */
     width: 100px; /* 幅を設定 */
+    gap: 10px;
 }
