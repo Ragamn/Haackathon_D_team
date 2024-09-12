@@ -1,0 +1,123 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+.btn,
+a.btn,
+button.btn {
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    border: 1.5px solid;
+    margin-left: 120px;
+    font-size: 15px;
+}
+メニュー名のテキストボックスの下にプルダウンを書いたけど初期が空白になる方法を教えて
+    .btn--orange,
+a.btn--orange {
+    color: black;
+    background-color: #fff;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+    color: black;
+    background: #fff;
+}
+p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+body {
+    background-color: #fff9f3;
+}
+h1 {
+    text-align: center;
+}
+.wide-select {
+    width: 170px;
+}
+.square-textarea {
+    border: 1.5px solid #000; /* 枠線を黒色に設定 */
+    border-radius: 0; /* 四角にするために角を丸めない */
+}
+.large-steps {
+    font-size: 1.5em; /* フォントサイズを大きくする */
+}
+.large-steps input[type="text"] {
+    font-size: 1.5em; /* 入力フィールドのフォントサイズを大きくする */
+    width: 40%; /* 入力フィールドの幅を100%にする */
+}
+.menu-input {
+    border: 1.5px solid #000; /* 枠線を黒色に設定 */
+    padding: 5px; /* 枠内の余白を追加 */
+    width: 60%; /* 幅を広げる */
+    display: block; /* ブロック要素にする */
+    margin-left: auto; /* 左右中央寄せ */
+    margin-right: auto; /* 左右中央寄せ */
+}
+
+.wide-select {
+    border: 1.5px solid #000; /* 枠線を黒色に設定 */
+    padding: 5px; /* 枠内の余白を追加 */
+    width: 60%; /* 幅を広げる */
+    margin-bottom: 10px; /* 下に余白を追加 */
+    display: block; /* ブロック要素にする */
+    margin-left: auto; /* 左右中央寄せ */
+    margin-right: auto; /* 左右中央寄せ */
+}
+p {
+    margin-left: 120px;
+}
+.centered-file-input {
+    display: block; /* ブロック要素にする */
+    margin-left: auto; /* 左右中央寄せ */
+    margin-right: auto; /* 左右中央寄せ */
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+#img-preview {
+    display: block; /* ブロック要素にする */
+    margin-left: auto; /* 左右中央寄せ */
+    margin-right: auto; /* 左右中央寄せ */
+    max-width: 200px; /* 最大幅を設定 */
+    max-height: 200px; /* 最大高さを設定 */
+}
+.materials-container {
+    display: flex; /* フレックスボックスにする */
+    margin-left: 120px;
+    gap: 10px; /* テキストボックス間の隙間 */
+}
+.material-input1 {
+    border: 1.5px solid #000; /* 枠線を黒色に設定 */
+    padding: 5px; /* 枠内の余白を追加 */
+    width: 150px; /* 幅を設定 */
+}
+
+.material-input2 {
+    border: 1.5px solid #000; /* 枠線を黒色に設定 */
+    padding: 5px; /* 枠内の余白を追加 */
+    width: 100px; /* 幅を設定 */
+}
