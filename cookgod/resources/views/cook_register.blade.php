@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="{{ asset('css/cook_register.css') }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
   <div class="center">
-    <img src="../../img/cookgod_logo.png" alt="cookgod">
+    <img src="../../img/cookgod_logo.png" alt="cookgod" id="topLogo">
   </div>
-  <p>料理登録</p>
+  <p id="toptext">料理登録</p>
   <form action="">
     <span class="tx-md">メニュー名</span><br>
     <input name="name" id="name" type="text">
@@ -24,7 +23,9 @@
       <!-- フォーム -->
       <input type="file" name="img" id="file-input" accept=".jpg, .jpeg, .png, .gif">
     </div>
-    <div class="center"><input type="submit" id="submit" value="投稿"></div>
+    <div class="center">
+       <input type="submit" id="submit" value="投稿内容を確認">
+    </div>
   </form>
 
   <!-- 画像プレビューjs -->

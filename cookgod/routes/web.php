@@ -8,6 +8,9 @@ Route::get('/', function () {
 Route::get('/cook_register', function () {
     return view('cook_register');
 });
+Route::get('/cook_confirm', function () {
+    return view('cook_confirm');
+});
 Route::get('/arrange_register', function () {
     return view('arrange_register');
 });

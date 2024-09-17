@@ -1,0 +1,60 @@
+body{
+    background-color: bisque;
+  }
+  
+  /* ロゴが画面幅より大きくならないようにする */
+  @media (max-width: 400px) {
+    #topLogo {
+      width: 100%;
+    }  
+  }
+  
+  #toptext {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  #confirm {
+    background-color: white;
+    border: 1px black solid;
+    margin: 0 20%;
+    padding: 10px 0 0 3%;
+  }
+  
+  .tx-md {
+    font-size: 32px;
+  }
+
+  .cookname {
+    margin-left: 2%;
+  }
+  
+  
+  #submit {
+    margin-top: 30px;
+    text-align: center;
+    background-color: white;
+    width: 15%;
+    height: 50px;
+    border-radius: 5px;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  
+  /* スマホ用に大きさを変える */
+  @media (max-width: 450px) {
+    #confirm {
+      margin: 0 10%;
+    }  
+  
+    #toptext {
+      font-size: 32px;
+    }
+  
+    .tx-md {
+      font-size: 24px;
+    }
+  }
