@@ -5,22 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="{{ asset('css/cook_register.css') }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <img src="" alt="">
-  <h1>料理登録</h1>
+  <div class="center">
+    <img src="../../img/cookgod_logo.png" alt="cookgod">
+  </div>
+  <p>料理登録</p>
   <form action="">
-  <p>メニュー名</p>
-    <div class="input_file">
-      <div class="preview">
-        <input accept="image/*" id="imgFile" type="file">
-      </div>
-      <p class="btn_upload">
-        画像ファイルを選択してアップロード
-      </p>
+    <span class="tx-md">メニュー名</span><br>
+    <input name="name" id="name" type="text">
+
+    <span class="tx-md">写真</span><br>
+    <!-- フォームで選択した画像 -->
+    <img id="img-preview" accept="image/*" style="max-width: 300px; max-height: 300px; display: none;">
+
+    <div class="buttons">
+      <!-- フォーム -->
+      <input type="file" name="img" id="file-input" accept=".jpg, .jpeg, .png, .gif">
     </div>
-    <input type="submit">
+    <div class="center"><input type="submit" id="submit" value="投稿"></div>
   </form>
-  <script src="../js/cook_register.js"></script>
+
+  <!-- 画像プレビューjs -->
+  <script>
+    document.getElementById('file-input').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imgPreview = document.getElementById('img-preview');
+          imgPreview.src = e.target.result;
+          imgPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
 </body>
 </html>

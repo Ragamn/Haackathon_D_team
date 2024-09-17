@@ -1,10 +1,40 @@
 body {
     background-color: bisque;
 }
-
 .input-file .preview {
     background-image: url(/hoge.jpg);
 }
 .input-file input[type="file"] {
     opacity: 0;
+}
+p {
+    text-align: center;
+    font-size: 40px;
+}
+
+form {
+    margin: 0 20%;
+}
+
+#name {
+    width: 100%;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.tx-md {
+    font-size: 32px;
+}
+
+#submit {
+    margin-top: 30px;
+    text-align: center;
+    background-color: white;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.center {
+    text-align: center;
 }
