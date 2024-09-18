@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 </head>
 <body>
+  <header>
+    @include('layouts.header')
+  </header>
+  
   <h1>TOP</h1>
   @if(isset($msg))
     <p>{{ $msg }}</p>
