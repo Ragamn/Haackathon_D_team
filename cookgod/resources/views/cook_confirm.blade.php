@@ -13,15 +13,20 @@
     <p id="toptext">投稿内容確認</p>
     <div id="confirm">
         <span class="tx-md">料理名</span><br>
-        <p class="cookname">ここに料理名入れる</p>
+        <p class="cookname">{{session('name')}}</p>
 
-        <span class="tx-md">写真</span><br>
-        <img src="" alt="">
+        <img class="cookimg" src='{{ asset("storage/tmp/" . $filename ) }}' alt="Uploaded Image">
     </div>
-    <form action="">
-        <div class="center">
-            <input type="submit" id="submit" value="投稿">
+    <div class="flex button-div">
+
+        <div class="w-50 center">
+            <a href="/cook_register" class="back">戻る</a>
         </div>
-    </form>
+
+        <div class="w-50 center">
+            <a href="/cook_create" class="submit">投稿</a>
+        </div>
+
+    </div>
 </body>
 </html>

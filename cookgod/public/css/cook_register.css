@@ -8,12 +8,6 @@ body {
     opacity: 0;
 }
 
-/* ロゴが画面幅より大きくならないようにする */
-@media (max-width: 400px) {
-  #topLogo {
-    width: 100%;
-  }  
-}
 
 #toptext {
   text-align: center;
@@ -21,48 +15,61 @@ body {
 }
 
 form {
-    margin: 0 20%;
+  margin: 0 20%;
 }
 
 #name {
-    width: 100%;
+  width: 100%;
     font-size: 20px;
     margin: 0 0 10px 0;
-}
-
-.tx-md {
-    font-size: 32px;
-}
-
-#submit {
-  margin-top: 30px;
-  text-align: center;
-  background-color: white;
-  width: 30%;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.center {
-  text-align: center;
-}
-
-
-/* スマホ用に大きさを変える */
-@media (max-width: 450px) {
-  form {
-    margin: 0 10%;
-  }  
-
-  #toptext {
-    font-size: 32px;
   }
-
-  #name {
-    font-size: 16px;
-  }
-
+  
   .tx-md {
-    font-size: 24px;
+    font-size: 32px;
   }
+  
+  #submit {
+    margin-top: 30px;
+    text-align: center;
+    background-color: white;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+  /* 確認ボタンの文字が隠れないようにする */
+  @media (max-width: 600px) {
+    #submit {
+      width: 50%;
+    }  
+  }  
+  
+  /* ロゴが画面幅より大きくならないようにする */
+  @media (max-width: 400px) {
+    #topLogo {
+      width: 100%;
+    }  
+  }
+  
+  /* スマホ用に大きさを変える */
+  @media (max-width: 450px) {
+    form {
+      margin: 0 10%;
+    }  
+    
+    #toptext {
+      font-size: 32px;
+    }
+    
+    #name {
+      font-size: 16px;
+    }
+    
+    .tx-md {
+      font-size: 24px;
+    }
 }

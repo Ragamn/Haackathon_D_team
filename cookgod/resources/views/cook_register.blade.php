@@ -11,9 +11,10 @@
     <img src="../../img/cookgod_logo.png" alt="cookgod" id="topLogo">
   </div>
   <p id="toptext">料理登録</p>
-  <form action="">
+  <form action="/cook_confirm" method="POST" enctype="multipart/form-data">
+    @csrf
     <span class="tx-md">メニュー名</span><br>
-    <input name="name" id="name" type="text">
+    <input name="name" id="name" type="text" value="{{session('name')}}">
 
     <span class="tx-md">写真</span><br>
     <!-- フォームで選択した画像 -->
