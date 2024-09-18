@@ -1,0 +1,175 @@
+/* ベーススタイリング */
+
+/* ナビゲーションバーの背景色を定義するカスタムプロパティ */
+:root {
+    --background-navbar: rgba(
+        255,
+        255,
+        255,
+        0.98
+    ); /* ナビゲーションバーの背景色 */
+}
+
+/* ナビゲーションバーのスタイリング */
+#header {
+    background: var(--background-navbar); /* 背景色をカスタムプロパティで設定 */
+    width: 100%; /* 幅を100%に設定 */
+    height: 100px; /* 高さを52pxに設定 */
+    display: flex; /* フレックスボックスを使って子要素を整列 */
+    justify-content: space-between; /* 子要素を左右に配置 */
+    align-items: center; /* 子要素を垂直方向に中央に配置 */
+}
+
+/* メニューリストのスタイリング */
+#header .menu {
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    position: absolute; /* 絶対位置に配置 */
+    width: 20%; /* 幅を100%に設定 */
+    height: auto; /* 高さは自動で調整 */
+    top: 100px; /* ヘッダーの下に配置 */
+    margin: 0; /* マージンを削除 */
+    padding: 0; /* パディングを削除 */
+    right: 0; /* 左端に揃える */
+    background: var(--background-navbar); /* 背景色をカスタムプロパティで設定 */
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s; /* トランジションの設定 */
+    transform: scale(1, 0); /* 初期状態で縦のスケールを0に設定 */
+    transform-origin: top; /* スケールの基準点を上に設定 */
+}
+
+/* ハンバーガーメニューボタンがチェックされたときのスタイル */
+#header .menu-btn:checked ~ .menu {
+    transform: scale(
+        1,
+        1
+    ); /* メニューが表示されるときに縦のスケールを1に設定 */
+    transform-origin: top; /* スケールの基準点を上に設定 */
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s; /* トランジションの設定 */
+}
+
+/* メニューリンクのスタイリング */
+#header .menu a {
+    text-decoration: none; /* 下線を削除 */
+    font-weight: 500; /* フォントの太さ */
+    letter-spacing: 2px; /* 文字間のスペース */
+    font-size: 16px; /* フォントサイズ */
+    text-transform: capitalize; /* テキストを先頭大文字に変換 */
+    color: #000000; /* テキストの色 */
+    opacity: 0; /* 初期状態で透明 */
+    transition: 0.5s; /* トランジションの設定 */
+}
+
+/* メニュー項目のスタイリング */
+#header .menu li {
+    border-top: 1px solid rgb(75, 75, 75); /* 上部にボーダーを追加 */
+    padding: 15px 0; /* 上下に15pxのパディング */
+    margin: 0; /* マージンを削除 */
+    opacity: 0; /* 初期状態で透明 */
+    transition: 0.5s; /* トランジションの設定 */
+}
+
+/* ハンバーガーメニューボタンがチェックされたときのリンクと項目のスタイル */
+#header .menu-btn:checked ~ .menu a,
+#header .menu-btn:checked ~ .menu li {
+    opacity: 1; /* メニューが表示されるときに透明度を1に設定 */
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s; /* トランジションの設定 */
+}
+
+/* メニューボタンのスタイリング */
+#header .menu-btn {
+    display: none; /* デフォルトでは表示しない */
+}
+
+/* メニューアイコンのスタイリング */
+#header .menu-icon {
+    display: inline-block; /* インラインブロック要素として表示 */
+    position: relative; /* 相対位置に配置 */
+    cursor: pointer; /* ポインタカーソルを表示 */
+    padding: 24px 14px; /* パディングを設定 */
+    -webkit-tap-highlight-color: rgba(
+        0,
+        0,
+        0,
+        0
+    ); /* タップ時のハイライトを削除 */
+    margin-left: auto; /* 左側の余白を自動で調整し、右側に配置 */
+}
+
+/* ナビゲーションアイコンのスタイリング */
+#header .navicon {
+    background: #1c1717; /* 背景色を設定 */
+    display: block; /* ブロック要素として表示 */
+    height: 3px; /* 高さを3pxに設定 */
+    width: 26px; /* 幅を26pxに設定 */
+    position: relative; /* 相対位置に配置 */
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s; /* トランジションの設定 */
+}
+
+/* ナビゲーションアイコンの擬似要素スタイリング */
+#header .navicon:before,
+#header .navicon:after {
+    content: ""; /* コンテンツは空 */
+    display: block; /* ブロック要素として表示 */
+    height: 100%; /* 高さを100%に設定 */
+    width: 100%; /* 幅を100%に設定 */
+    position: absolute; /* 絶対位置に配置 */
+    background: #1a1515; /* 背景色を設定 */
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s; /* トランジションの設定 */
+}
+
+/* ナビゲーションアイコンの擬似要素の位置 */
+#header .navicon:before {
+    top: 9px; /* 上から9pxの位置に配置 */
+}
+
+#header .navicon:after {
+    bottom: 9px; /* 下から9pxの位置に配置 */
+}
+
+/* ハンバーガーメニューのアニメーション */
+#header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg); /* 上のバーを-45度回転 */
+}
+
+#header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg); /* 下のバーを45度回転 */
+}
+
+#header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+    top: 0; /* 上のバーの位置を0に設定 */
+}
+#header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    bottom: 0; /* 下のバーの位置を0に設定 */
+}
+
+#header .menu-btn:checked ~ .menu-icon .navicon {
+    background: rgba(255, 255, 255, 0);
+    transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s; /* トランジションの設定 */
+}
+
+/* ナビゲーションバーのテキストコンテナ */
+#header .navtext-container {
+    display: flex; /* フレックスボックスを使って子要素を整列 */
+    justify-content: center; /* 子要素を中央に配置 */
+    align-items: center; /* 子要素を垂直方向に中央に配置 */
+    width: 100%; /* 幅を100%に設定 */
+    height: 52px; /* 高さを52pxに設定 */
+    /* position: absolute; 絶対位置に配置 */
+    box-sizing: border-box; /* ボックスサイズをボーダー込みで計算 */
+}
+
+/* ナビゲーションバーのテキスト */
+#header .navtext {
+    text-transform: uppercase; /* テキストを大文字に変換 */
+    color: #000000; /* テキストの色 */
+    letter-spacing: 4px; /* 文字間のスペース */
+    font-size: 20px; /* フォントサイズ */
+    position: absolute; /*  絶対位置に配置 */
+}
+
+.img {
+    margin: 0 auto 0 0;
+}
+
+.menu_text {
+    margin-left: 20%;
+}

@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all {
+    font-family: Arial, sans-serif;
+    padding: 0 10%;
+    background-color: #fff9f3;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #ccc; /* 全体の線 */
+    border-radius: 10px; /* 角を丸く */
+    margin-top: 2%;
+    background-color: #ffffff;
+}
+
+.image-section {
+    width: 30%;
+    border-right: 2px solid #ccc; /* 画像部分とテキスト部分の仕切り線 */
+    padding-right: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* 画像の角を丸く */
+}
+
+.text-section {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc; /* タイトルと説明文の仕切り線 */
+    padding-bottom: 10px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bookmark {
+    background-color: rgb(255, 255, 255); /* 通常時の背景色 */
+    border: none; /* ふちを無しに */
+    font-size: 30px;
+    cursor: pointer;
+    color: black; /* 通常時のハートの色 */
+    transition: color 0.3s ease;
+}
+
+.bookmark.active {
+    color: rgb(255, 0, 0); /* 押されたときのハートの色 */
+}
+
+.bookmark:not(.active) {
+    color: rgb(185, 185, 185); /* 通常時のハートの色 */
+}
+
+.description {
+    padding-top: 10px;
+}
+
+.description p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
