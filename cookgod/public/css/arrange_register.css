@@ -10,10 +10,24 @@ html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff9f3;
+}
+/* 新しいスタイル */
+.movable-container {
+    position: relative; /* 相対位置に設定 */
+    top: 0; /* 初期位置を設定 */
+    left: 0; /* 初期位置を設定 */
+    width: 100%; /* 幅を100%に設定 */
+    height: auto; /* 高さを自動調整 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20%; /* 内側の余白を追加 */
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+}
 
-.btn,
-a.btn,
-button.btn {
+.btn {
     line-height: 1.5;
     position: relative;
     display: inline-block;
@@ -32,9 +46,10 @@ button.btn {
     color: #212529;
     border-radius: 0.5rem;
     border: 1.5px solid;
-    margin-left: 430px;
-    font-size: 36px;
+    font-size: 25px;
     margin-top: 50px;
+    width: 30%;
+    padding: 9px;
 }
 .btn--orange,
 a.btn--orange {
@@ -49,101 +64,65 @@ a.btn--orange:hover {
 }
 p {
     font-size: 20px;
-    margin-top: 10px;
-}
-body {
-    background-color: #fff9f3;
 }
 h1 {
     text-align: center;
+    font-weight: normal;
 }
-.wide-select {
-    width: 170px;
-}
-.square-textarea {
-    border: 1.5px solid #000; /* 枠線を黒色に設定 */
-    border-radius: 0; /* 四角にするために角を丸めない */
-    padding: 10px; /* 枠内の余白を追加 */
-    width: calc(70% - 40px); /* 幅を100%に設定し、マージンを考慮 */
-    box-sizing: border-box; /* パディングを含めて幅を計算 */
-    margin-left: 168px; /* テキストボックスを右に移動 */
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1.5px solid #000;
+    padding: 12px;
 }
 .large-steps {
     font-size: 1.5em; /* フォントサイズを大きくする */
-    margin-left: 150px;
 }
 .large-steps input[type="text"] {
     font-size: 1.5em; /* 入力フィールドのフォントサイズを大きくする */
-    width: 77%; /* 入力フィールドの幅を100%にする */
-}
-.menu-input {
-    border: 1.5px solid #000; /* 枠線を黒色に設定 */
-    padding: 12px; /* 枠内の余白を追加 */
-    width: 65%; /* 幅を広げる */
-    display: block; /* ブロック要素にする */
-    margin-left: auto; /* 左右中央寄せ */
-    margin-right: auto; /* 左右中央寄せ */
-}
-
-.wide-select {
-    border: 1.5px solid #000; /* 枠線を黒色に設定 */
-    padding: 12px; /* 枠内の余白を追加 */
-    width: 65%; /* 幅を広げる */
-    margin-bottom: 10px; /* 下に余白を追加 */
-    display: block; /* ブロック要素にする */
-    margin-left: auto; /* 左右中央寄せ */
-    margin-right: auto; /* 左右中央寄せ */
 }
 p {
     font-size: 18px;
-    margin-left: 17.5%;
 }
 .centered-file-input {
-    display: block; /* ブロック要素にする */
-    margin-left: auto; /* 左右中央寄せ */
-    margin-right: auto; /* 左右中央寄せ */
-    margin-bottom: 20px; /* 下に余白を追加 */
-    padding: 10px; /* 枠内の余白を追加 */
     font-size: 1.2em; /* フォントサイズを大きくする */
-    width: 67%; /* 幅を広げる */
+    border: none;
+    margin: 20px 0;
+    padding: 0;
+}
+.wide-select {
+    margin-bottom: 20px;
 }
 #img-preview {
     display: block; /* ブロック要素にする */
-    margin-left: 175px;
-    max-width: 200px; /* 最大幅を設定 */
-    max-height: 200px; /* 最大高さを設定 */
+    max-width: 100%;
+    max-height: 300px;
 }
 .materials-container {
     display: flex; /* フレックスボックスにする */
-    margin-left: 172px;
     gap: 10px; /* テキストボックス間の隙間 */
+    margin-bottom: 10px;
 }
 .material-input1 {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
     padding: 12px; /* 枠内の余白を追加 */
-    width: 150px; /* 幅を設定 */
+    min-width: 150px; /* 幅を設定 */
     gap: 10px;
+    width: 30%;
 }
 
 .material-input2 {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
     padding: 5px; /* 枠内の余白を追加 */
-    width: 100px; /* 幅を設定 */
+    min-width: 100px; /* 幅を設定 */
     gap: 10px;
-}
-img {
-    margin-left: 290px;
-}
-h1 {
-    font-size: 40px;
-    font-weight: normal;
+    width: 20%;
 }
 .button-container {
     display: flex;
-    margin-left: 172px;
     gap: 5px; /* ボタン間の隙間を最小限に */
     margin-top: 10px;
-    width: 80%;
 }
 
 .button_black {
@@ -152,27 +131,46 @@ h1 {
     border: 1px solid;
     gap: 5px;
 }
-.step-input {
-    border: 2px solid #000; /* 太線にする */
-    padding: 5px; /* 枠内の余白を追加 */
-    width: 100%; /* 幅を100%に設定 */
-    box-sizing: border-box; /* パディングを含めて幅を計算 */
-    margin-top: 5px;
-}
-/* スマホ向けのスタイル */
-@media (max-width: 768px) {
-    .label-input-group,
-    .large-steps,
-    .button-container {
-        width: calc(100% - 20px); /* 幅を100%に設定し、マージンを考慮 */
-        margin-left: 10px; /* 左マージンを追加 */
-        margin-right: 10px; /* 右マージンを追加 */
-    }
 
-    .step-input,
-    .square-textarea {
-        width: calc(100% - 20px); /* 幅を100%に設定し、マージンを考慮 */
-        margin-left: 10px; /* 左マージンを追加 */
-        margin-right: 10px; /* 右マージンを追加 */
+.label-input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* 下に余白を追加 */
+    gap: 2%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.label-input-group p {
+    margin-bottom: 5px; /* ラベルとテキストボックスの間の余白を減らす */
+}
+
+.large-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px; /* 下に余白を追加 */
+}
+
+.step-input {
+    padding: 10px; /* 枠内の余白を追加 */
+}
+.submit-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (min-width: 481px) {
+    /* 481px以上に適用されるCSS（タブレット用） */
+    .movable-container {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 440px) {
+    .movable-container {
+        width: 100%;
+    }
+    .btn {
+        width: 20%;
     }
 }
