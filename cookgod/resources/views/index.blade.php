@@ -12,5 +12,8 @@
   </header>
   
   <h1>TOP</h1>
+  @if(isset($msg))
+    <p>{{ $msg }}</p>
+  @endif
 </body>
 </html>
