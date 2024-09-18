@@ -11,9 +11,10 @@
 </head>
 <body>
 
+
 <img src="../../img/cookgod_logo.png">
 
-
+<div class="movable-container">
   <h1>アレンジ画面</h1>
 
   <form action="#" method="post">
@@ -29,10 +30,9 @@
     <!-- フォームで選択した画像 -->
     <img id="img-preview" style="display: none;">
 
-    <div class="buttons">
+
       <!-- フォーム -->
       <input type="file" name="logo" id="file-input" class="centered-file-input" accept=".jpg, .jpeg, .png, .gif">
-    </div>
 
     <p>材料(1人前)</p>
     <div class="materials-container">
@@ -46,28 +46,29 @@
     <button type="button" id="add-button" class="button_black">＋</button>
     <button type="button" id="remove-button" class="button_black">ー</button>
 </div>
-<br>
 
     <p>作り方・手順</p>
     <div id="steps" class="large-steps">
-    <div class="label-input-group">
-      <label for="step1">①</label>
-      <input type="text" id="step1" name="step1" class="step-input" required minlength="4" maxlength="100" size="50" /><br>
+      <div class="label-input-group">
+        <label for="step1">①</label>
+        <input type="text" id="step1" name="step1" class="step-input" required minlength="4" maxlength="100" size="50" />
+      </div>
     </div>
-</div>
 
-<div class="button-container">
-    <button type="button" id="add-step-button" class="button_black">＋</button>
-    <button type="button" id="remove-step-button"class="button_black">ー</button>
-</div>
-<br>
+    <div class="button-container">
+        <button type="button" id="add-step-button" class="button_black">＋</button>
+        <button type="button" id="remove-step-button"class="button_black">ー</button>
+    </div>
 
     <p>説明補足</p>
-    <textarea id="description" name="description" class="square-textarea" placeholder="味、おすすめポイント、きっかけ、楽しみ方 等" rows="6" cols="60" required></textarea><br>
+    <textarea id="description" name="description" class="square-textarea" placeholder="味、おすすめポイント、きっかけ、楽しみ方 等" rows="6" cols="60" required></textarea>
 
-    <a href="" class="btn btn--orange">投稿</a>
+    <div class="submit-button-container">
+      <input type="submit" value="投稿" class="btn btn--orange">
+    </div>
 
   </form>
+</div>
 
   <script>
   let inputCount = 1;
