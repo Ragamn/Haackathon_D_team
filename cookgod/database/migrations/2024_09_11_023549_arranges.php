@@ -10,26 +10,26 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('arranges', function (Blueprint $table) {
-            $table->id('arrange_id'); // Primary key with auto increment
-            $table->unsignedBigInteger('cooking_id'); // Ensure this matches the type of the primary key in 'cooks'
-            $table->string('name', 255); // Arrange name
-            $table->string('description', 255)->nullable(); // Optional description
-            $table->string('image_path', 255)->nullable(); // Optional image path
-            $table->integer('impression')->nullable(); // Impression count
-            $table->timestamps(); // created_at and updated_at
-            
-            // Define foreign key constraint
-            $table->foreign('cooking_id')->references('cooking_id')->on('cooks')->onDelete('cascade');
-        });
-    }
+{
+    Schema::create('arranges', function (Blueprint $table) {
+        $table->id('arrange_id'); // 自動インクリメントの主キー
+        $table->unsignedBigInteger('cooking_id'); // 'cooks'テーブルの主キーと一致する型
+        $table->string('name', 255); // アレンジ名
+        $table->string('description', 255)->nullable(); // 任意の説明
+        $table->string('image_path', 255)->nullable(); // 任意の画像パス
+        $table->integer('impression')->default(0)->nullable(); // デフォルト値0のインプレッション数
+        $table->timestamps(); // created_atとupdated_at
+        
+        // 外部キー制約の定義
+        $table->foreign('cooking_id')->references('cooking_id')->on('cooks')->onDelete('cascade');
+    });
+}
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('arranges');
-    }
+/**
+ * マイグレーションをロールバックします。
+ */
+public function down(): void
+{
+    Schema::dropIfExists('arranges');
+}
 };
