@@ -28,3 +28,6 @@ Route::get('/arrange_confirm', function () {
 Route::get('/favorite', function () {
     return view('favorite');
 });
+Route::get('/cook_ranking', function () {
+    return view('cook_ranking');
+});
