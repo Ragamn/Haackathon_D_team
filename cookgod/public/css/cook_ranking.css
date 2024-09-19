@@ -8,6 +8,14 @@ body {
 }
 
 .center { text-align: center; }
+.flex { display: flex; }
+
+.list-title {
+    width: 10em;
+    font-size: 26px;
+    margin-left: 10%;
+    border-bottom: 2px solid black;
+}
 
 input[type="text"] {
     width: 50%;
@@ -66,7 +74,27 @@ form {
     width: 95%;
 }
 
+.bookmark {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+    font-size: large;
+}
+
+.bookmark:not(.active) {
+    color: rgb(185, 185, 185); /* 通常時のハートの色 */
+}
+
+.bookmark .active {
+    color: red; /* 押されたときのハートの色 */
+}
+
 @media (max-width: 430px) {
+    .list-title {
+        margin: 5%;
+        font-size: 22px;
+    }
+
     .flex-margin {
         margin: 0;
     }

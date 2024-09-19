@@ -15,13 +15,17 @@
         <input type="text" placeholder="料理名">
         <input type="submit" value="検索">
     </form>
+    <p class="list-title">人気順一覧</p>
     <div id="content">
         <div class="inner">
             <div class="flex-margin">
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -30,7 +34,10 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -39,7 +46,10 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -48,7 +58,10 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -57,7 +70,10 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -66,7 +82,10 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -75,7 +94,22 @@
                 <div class="flex-margin-child">
                     <div class="cookdiv">
                         <img src="../../img/karaage.png" alt="">
-                        <p class="name">からあげ</p>
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
+                        <p class="detail">
+                            ここに説明が入りますああああ
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-margin-child">
+                    <div class="cookdiv">
+                        <img src="../../img/karaage.png" alt="">
+                        <div class="flex">
+                            <p class="name">からあげ</p>
+                            <button class="bookmark">&#10084;</button>
+                        </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
@@ -84,5 +118,6 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('js/list.js')}}"></script>
 </body>
 </html>
