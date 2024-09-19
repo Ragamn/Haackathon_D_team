@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\HTtp\Controllers\CookController;
+use App\HTtp\Controllers\ArrangeController;
 
 Route::get('/', function () {
     $msg = session('msg', '');
@@ -22,9 +23,7 @@ Route::get('/cook_list', function () {
 Route::get('/arrange_register', function () {
     return view('arrange_register');
 });
-Route::get('/arrange_confirm', function () {
-    return view('arrange_confirm');
-});
+Route::post('/arrange_confirm',[ArrangeController::class,'arrange_confirm']);
 Route::get('/favorite', function () {
     return view('favorite');
 });
