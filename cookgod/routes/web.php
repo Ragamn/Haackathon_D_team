@@ -22,6 +22,9 @@ Route::get('/cook_list', function () {
 Route::get('/arrange_register', function () {
     return view('arrange_register');
 });
+Route::get('/arrange_confirm', function () {
+    return view('arrange_confirm');
+});
 Route::get('/favorite', function () {
     return view('favorite');
 });
