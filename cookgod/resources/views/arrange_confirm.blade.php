@@ -16,7 +16,7 @@
         <span class="tx-md">メニュー名</span><br>
         <p class="cookname">ささみチーズフライ～簡単に清潔に卵無し♡
         </p>
-        <img class="cookimg" src='{{ asset("storage/tmp/" . $filename ) }}' alt="Uploaded Image">
+
 
 </div>
 <div class="flex-row">
