@@ -23,6 +23,8 @@
         <p class="cookname">{{session('cookname')}}
         </p>
     </div>
+    <img class="cookimg" src='{{ asset("storage/tmp/" . $filename ) }}' alt="Uploaded Image">
+
     
 <div class="flex-row">
         <span class="tx-md">材料</span><br>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Arranges;
+use App\Models\Cooks;
 use App\Models\Materials;
 use App\Models\Processes;
 class ArrangeController extends Controller
@@ -14,22 +15,8 @@ class ArrangeController extends Controller
         return view('index',compact('arrange'));
     }
     public function arrangeregister(Request $request) {
-        $validate_rule = [
-            'id' => 'required',
-            'name' => 'required',
-            'img_pass' => 'required',
-            'material' => 'required|array',
-            'material.*' => 'required|string',
-            'amount' => 'required|array',
-            'amount.*' => 'required|string',
-            'process' => 'required|array',
-            'process.*' => 'required|string',
-            'description' => 'required',
-        ];
-        $request->validate($validate_rule);
         $arrange = new Arranges();
-        $arrange->id = $request->input('id');
-        $arrange->name = $request->input('name');
+        $arrange->$request->input('name');
         $arrange->description = $request->input('description');
         $arrange->img_pass = $request->input('img_pass');
 
