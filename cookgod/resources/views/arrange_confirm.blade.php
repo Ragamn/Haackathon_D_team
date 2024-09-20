@@ -13,19 +13,18 @@
     <p id="toptext">投稿画面</p>
     <div id="confirm">
         <div class="flex-row">
-        <span class="tx-md">メニュー名</span><br>
-        <p class="cookname">ささみチーズフライ～簡単に清潔に卵無し♡
+        <span class="tx-md">{{session('name')}}</span><br>
+        <p class="cookname">{{session('cookname')}}
         </p>
-
 
 </div>
 <div class="flex-row">
-        <span class="tx-md">材料</span><br>
-        <p class="cookname">ささみ 5本とろけるチーズ 適量 ●薄力粉:水 1:1パン粉 適量</p>
+        <span class="tx-md">{{session('material')}}</span><br>
+        <p class="cookname">{{session('amount')}}</p>
 </div>
         <div class="flex-row">
         <span class="tx-md">作り方・手順</span><br>
-        <p class="cookname">1●を合わせたドロと、
+        <p class="cookname">{{session('step')}}
 パン粉を準備しておく。
 
 2
@@ -39,10 +38,7 @@
 </div>
 <div class="flex-row">
         <span class="tx-md">説明補足</span><br>
-        <p class="cookname">◎皿にラップを引いて、ドロ！
-◎台にラップを引いて、パン粉！
-◎牛乳パックの上で、ささみ！
-◎ラップを捨てるだけで、衛生的！！！</p>
+        <p class="cookname">{{session('description')}}</p>
 </div>
     </div>
 

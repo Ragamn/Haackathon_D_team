@@ -20,11 +20,12 @@
 <div class="movable-container">
   <h1>アレンジ画面</h1>
 
-  <form action="#" method="post">
+  <form action="/arrange_confirm" method="post">
+    @csrf
         <p>メニュー名</p>
         <input type="text" name="name" class="menu-input">
       <p>参考にした料理を選択してください。</p>
-      <select name="プルダウンメニュー名" class="wide-select">
+      <select name="cookname" class="wide-select">
         <option value="" selected>選択してください</option>
         <option value="">項目名１</option>
         <option value="">項目名２</option>
@@ -54,7 +55,7 @@
     <div id="steps" class="large-steps">
       <div class="label-input-group">
         <label for="step1">①</label>
-        <input type="text" id="step1" name="step1" class="step-input" required minlength="4" maxlength="100" size="50" />
+        <input type="text" id="step1" name="step[0]" class="step-input" required minlength="4" maxlength="100" size="50" />
       </div>
     </div>
 
@@ -95,12 +96,12 @@
   });
 
   document.getElementById('add-step-button').addEventListener('click', function() {
-    stepCount++;
     const newStep = document.createElement('div');
     newStep.classList.add('label-input-group');
     newStep.innerHTML = `<label for="step${stepCount}">${convertToCircledNumber(stepCount)}</label>
-                         <input type="text" id="step${stepCount}" name="step${stepCount}" class="step-input" required minlength="4" maxlength="100" size="50" />`;
+                         <input type="text" id="step${stepCount}" name="step[${stepCount}]" class="step-input" required minlength="4" maxlength="100" size="50" />`;
     document.getElementById('steps').appendChild(newStep);
+    stepCount += 1;
   });
 
   document.getElementById('remove-step-button').addEventListener('click', function() {
