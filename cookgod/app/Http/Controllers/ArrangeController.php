@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Arranges;
+use App\Models\Cooks;
 use App\Models\Materials;
 use App\Models\Processes;
 class ArrangeController extends Controller
@@ -14,22 +15,8 @@ class ArrangeController extends Controller
         return view('index',compact('arrange'));
     }
     public function arrangeregister(Request $request) {
-        $validate_rule = [
-            'id' => 'required',
-            'name' => 'required',
-            'img_pass' => 'required',
-            'material' => 'required|array',
-            'material.*' => 'required|string',
-            'amount' => 'required|array',
-            'amount.*' => 'required|string',
-            'process' => 'required|array',
-            'process.*' => 'required|string',
-            'description' => 'required',
-        ];
-        $request->validate($validate_rule);
         $arrange = new Arranges();
-        $arrange->id = $request->input('id');
-        $arrange->name = $request->input('name');
+        $arrange->$request->input('name');
         $arrange->description = $request->input('description');
         $arrange->img_pass = $request->input('img_pass');
 
@@ -37,40 +24,49 @@ class ArrangeController extends Controller
     }
     public function arrange_confirm(Request $request) {
         // バリデーションルールの設定
-        // $validate_rule = [
-        //     'name' => 'required',
-        //     'cookname' => 'required',
-        //     'logo' => 'required|image',
-        //     'material' => 'required|array',
-        //     'material.*' => 'required|string',
-        //     'amount' => 'required|array',
-        //     'amount.*' => 'required|string',
-        //     'step' => 'required|array',
-        //     'step.*' => 'required|string',
-        //     'description' => 'required|string',
-        // ];
+        $validate_rule = [
+            'name' => 'required',
+            'cookname' => 'required',
+            'img' => 'required|image',
+            'material' => 'required|array',
+            'material.*' => 'required|string',
+            'amount' => 'required|array',
+            'amount.*' => 'required|string',
+            'step' => 'required|array',
+            'step.*' => 'required|string',
+            'description' => 'required|string',
+        ];
     
-        // // リクエストデータのバリデーション
-        // $request->validate($validate_rule);
+        // リクエストデータのバリデーション
+        $request->validate($validate_rule);
     
+        $name = $request->input('name');
+        $cook_name = $request->input('cookname');
+        $material = $request->input('material');
+        $amount = $request->input('amount');
+        $step = $request->input('step');
+        $description = $request->input('description');
+
         // 各フィールドの値をセッションに保存
-        $request->session()->put('name', $request->input('name'));
-        $request->session()->put('cookname', $request->input('cookname'));
-        $request->session()->put('material', $request->input('material'));
-        $request->session()->put('amount', $request->input('amount'));
-        $request->session()->put('step', $request->input('step'));
-        $request->session()->put('description', $request->input('description'));
-    
+        $request->session()->put([
+            'name' => $name,
+            'cookname' => $cook_name,
+            'material' => $material,
+            'amount' => $amount,
+            'step' => $step,
+            'description' => $description,
+        ]);
+
         // リクエストから画像ファイルを取得
-        // $logo = $request->file('logo');
+        $logo = $request->file('img');
+
+        // 画像を一時ディレクトリに保存し、パスを取得
+        $path = $logo->store('public/tmp');
     
-        // // 画像を一時ディレクトリに保存し、パスを取得
-        // $path = $logo->store('public/tmp');
+        // セッションに画像のパスを保存
+        // $request->session()->put('img', $path);
+        $filename = pathinfo($path, PATHINFO_BASENAME);
     
-        // // セッションに画像のパスを保存
-        // $request->session()->put('logo', $path);
-        // $filename = pathinfo($path, PATHINFO_BASENAME);
-    
-        return view('arrange_confirm');
+        return view('arrange_confirm',['filename' => $filename]);
     }
 }

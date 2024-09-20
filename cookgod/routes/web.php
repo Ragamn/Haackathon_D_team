@@ -20,9 +20,8 @@ Route::get('/arrange_register', function () {
 Route::get('/cook_list', function () {
     return view('cook_list');
 });
-Route::get('/arrange_register', function () {
-    return view('arrange_register');
-});
+Route::get('/arrange_register',[CookController::class,'select_cook']);
+
 Route::post('/arrange_confirm',[ArrangeController::class,'arrange_confirm']);
 Route::get('/favorite', function () {
     return view('favorite');

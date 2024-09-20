@@ -72,5 +72,8 @@ class CookController extends Controller
 
         return view('cook_confirm', ['filename' => $filename]);
     }
-    
+    public function select_cook(Request $requeat) {
+        $arrange = Cooks::select('cooking_id', 'name')->get()->toArray();
+        return view('arrange_register',compact('arrange'));
+    }
 }
