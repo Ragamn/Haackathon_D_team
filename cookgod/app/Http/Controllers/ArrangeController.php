@@ -37,21 +37,21 @@ class ArrangeController extends Controller
     }
     public function arrange_confirm(Request $request) {
         // バリデーションルールの設定
-        // $validate_rule = [
-        //     'name' => 'required',
-        //     'cookname' => 'required',
-        //     'logo' => 'required|image',
-        //     'material' => 'required|array',
-        //     'material.*' => 'required|string',
-        //     'amount' => 'required|array',
-        //     'amount.*' => 'required|string',
-        //     'step' => 'required|array',
-        //     'step.*' => 'required|string',
-        //     'description' => 'required|string',
-        // ];
+        $validate_rule = [
+            'name' => 'required',
+            'cookname' => 'required',
+            'img' => 'required|image',
+            'material' => 'required|array',
+            'material.*' => 'required|string',
+            'amount' => 'required|array',
+            'amount.*' => 'required|string',
+            'step' => 'required|array',
+            'step.*' => 'required|string',
+            'description' => 'required|string',
+        ];
     
-        // // リクエストデータのバリデーション
-        // $request->validate($validate_rule);
+        // リクエストデータのバリデーション
+        $request->validate($validate_rule);
     
         $name = $request->input('name');
         $cook_name = $request->input('cookname');
