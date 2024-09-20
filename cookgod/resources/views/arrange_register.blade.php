@@ -17,15 +17,15 @@
 <div class="movable-container">
   <h1>アレンジ画面</h1>
 
-  <form action="/arrange_confirm" method="post">
+  <form action="/arrange_confirm" method="post" enctype="multipart/form-data">
     @csrf
         <p>メニュー名</p>
         <input type="text" name="name" class="menu-input">
       <p>参考にした料理を選択してください。</p>
       <select name="cookname" class="wide-select">
-        <option value="" selected>選択してください</option>
-        <option value="">項目名１</option>
-        <option value="">項目名２</option>
+        <option value="ffffff" selected>選択してください</option>
+        <option value="ffffff">項目名１</option>
+        <option value="ffffff">項目名２</option>
       </select>
 
     <!-- フォームで選択した画像 -->
@@ -33,12 +33,12 @@
 
 
       <!-- フォーム -->
-      <input type="file" name="logo" id="file-input" class="centered-file-input" accept=".jpg, .jpeg, .png, .gif">
+      <input type="file" name="img" id="file-input" class="centered-file-input" accept=".jpg, .jpeg, .png, .gif">
 
     <p>材料(1人前)</p>
     <div class="materials-container">
-      <input type="text" id="name1" name="material[0]" class="material-input1" required minlength="4" maxlength="8" size="10" />
-      <input type="text" id="name2" name="amount[0]" class="material-input2" required minlength="4" maxlength="8" size="5" />
+      <input type="text" id="name1" name="material[0]" class="material-input1" required size="10" />
+      <input type="text" id="name2" name="amount[0]" class="material-input2" required size="5" />
     </div>
 
     <div id="additional-inputs"></div>
@@ -52,7 +52,7 @@
     <div id="steps" class="large-steps">
       <div class="label-input-group">
         <label for="step1">①</label>
-        <input type="text" id="step1" name="step[0]" class="step-input" required minlength="4" maxlength="100" size="50" />
+        <input type="text" id="step1" name="step[0]" class="step-input" required size="50" />
       </div>
     </div>
 

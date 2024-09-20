@@ -53,24 +53,33 @@ class ArrangeController extends Controller
         // // リクエストデータのバリデーション
         // $request->validate($validate_rule);
     
+        $name = $request->input('name');
+        $cook_name = $request->input('cookname');
+        $material = $request->input('material');
+        $amount = $request->input('amount');
+        $step = $request->input('step');
+        $description = $request->input('description');
+
         // 各フィールドの値をセッションに保存
-        $request->session()->put('name', $request->input('name'));
-        $request->session()->put('cookname', $request->input('cookname'));
-        $request->session()->put('material', $request->input('material'));
-        $request->session()->put('amount', $request->input('amount'));
-        $request->session()->put('step', $request->input('step'));
-        $request->session()->put('description', $request->input('description'));
-    
+        $request->session()->put([
+            'name' => $name,
+            'cookname' => $cook_name,
+            'material' => $material,
+            'amount' => $amount,
+            'step' => $step,
+            'description' => $description,
+        ]);
+
         // リクエストから画像ファイルを取得
-        // $logo = $request->file('logo');
+        $logo = $request->file('img');
+
+        // 画像を一時ディレクトリに保存し、パスを取得
+        $path = $logo->store('public/tmp');
     
-        // // 画像を一時ディレクトリに保存し、パスを取得
-        // $path = $logo->store('public/tmp');
+        // セッションに画像のパスを保存
+        // $request->session()->put('img', $path);
+        $filename = pathinfo($path, PATHINFO_BASENAME);
     
-        // // セッションに画像のパスを保存
-        // $request->session()->put('logo', $path);
-        // $filename = pathinfo($path, PATHINFO_BASENAME);
-    
-        return view('arrange_confirm');
+        return view('arrange_confirm',['filename' => $filename]);
     }
 }
