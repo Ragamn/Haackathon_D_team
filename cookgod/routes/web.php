@@ -27,3 +27,6 @@ Route::post('/arrange_confirm',[ArrangeController::class,'arrange_confirm']);
 Route::get('/favorite', function () {
     return view('favorite');
 });
+Route::get('/cook_ranking', function () {
+    return view('cook_ranking');
+});

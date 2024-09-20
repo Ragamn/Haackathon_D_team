@@ -1,87 +1,86 @@
-body{
+body {
     background-color: bisque;
-  }
-  
-  #toptext {
+    font-family: "Merriweather", serif;
+}
+
+#toptext {
     text-align: center;
     font-size: 40px;
-  }
-  
-  #confirm {
+}
+
+#confirm {
     background-color: white;
     border: 1px black solid;
     margin: 0 20%;
     padding: 10px 0 0 3%;
-  }
-  
-  .tx-md {
+}
+
+.tx-md {
     font-size: 32px;
-  }
-  
-  .cookname {
+}
+
+.cookname {
     margin-left: 2%;
-  }
-  
-  
-  
-  .center {
+}
+
+.center {
     text-align: center;
-  }
-  
-  .button-div {
+}
+
+.button-div {
     margin: 50px 20% 0 20%;
-  }
-  
-  .flex {
+}
+
+.flex {
     display: flex;
-  }
-  
-  .w-50 {
+}
+
+.w-50 {
     width: 50%;
-  }
-  
-  .back {
-    padding: 10px 20px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  .submit {
-    padding: 10px 20px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-  }
+}
 
-  .cookimg {
+.back {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.submit {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cookimg {
     width: 90%;
-  }
+}
 
-  /* ロゴが画面幅より大きくならないようにする */
-  @media (max-width: 400px) {
+/* ロゴが画面幅より大きくならないようにする */
+@media (max-width: 400px) {
     #topLogo {
-      width: 100%;
-    }  
-  }
-  
-  /* スマホ用に大きさを変える */
-  @media (max-width: 450px) {
+        width: 100%;
+    }
+}
+
+/* スマホ用に大きさを変える */
+@media (max-width: 450px) {
     #confirm {
-      margin: 0 10%;
-    }  
-  
+        margin: 0 10%;
+    }
+
     #toptext {
-      font-size: 32px;
+        font-size: 32px;
     }
-  
+
     .tx-md {
-      font-size: 24px;
+        font-size: 24px;
     }
-  }
+}

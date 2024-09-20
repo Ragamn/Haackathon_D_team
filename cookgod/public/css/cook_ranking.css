@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+    margin: 0;
+}
+
+.center { text-align: center; }
+.flex { display: flex; }
+
+.list-title {
+    width: 10em;
+    font-size: 26px;
+    margin-left: 10%;
+    border-bottom: 2px solid black;
+}
+
+input[type="text"] {
+    width: 50%;
+    font-size: 26px;
+}
+
+input[type="submit"] {
+    width: 10%;
+    font-size: 26px;
+}
+
+.inner {
+    width: 97%;
+    margin: 0 auto;
+}
+.flex-margin {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10%;
+}
+
+.flex-margin-child {
+    width: calc(100% / 4);
+    /* padding: 15px 15px 0; */
+}
+
+form {
+    margin: 50px 0 30px 0;
+}
+
+.cookdiv {
+    background-color: white;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.cookdiv img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+.cookdiv .name {
+    margin: 0 0 0 3%;
+    font-size: 20px;
+}
+
+.cookdiv .detail {
+    margin: 8px 0 0 5%;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden; /* 内容が溢れた場合に隠す */
+    text-overflow: ellipsis; /* 溢れた部分を省略記号で表示 */
+    width: 95%;
+}
+
+.bookmark {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+    font-size: large;
+}
+
+.bookmark:not(.active) {
+    color: rgb(185, 185, 185); /* 通常時のハートの色 */
+}
+
+.bookmark .active {
+    color: red; /* 押されたときのハートの色 */
+}
+
+@media (max-width: 430px) {
+    .list-title {
+        margin: 5%;
+        font-size: 22px;
+    }
+
+    .flex-margin {
+        margin: 0;
+    }
+
+    .flex-margin-child {
+        width: calc(100% / 2);
+    }
+
+    .cookdiv .name {
+        font-size: 18px;
+    }
+
+    .cookdiv .detail {
+        font-size: 12px;
+    }
+
+    input[type="text"] {
+        width: 60%;
+        font-size: 22px;
+    }
+    
+    input[type="submit"] {
+        width: 15%;
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width: 960px) and (min-width: 431px) {
+    .flex-margin-child {
+        width: calc(100% / 3);
+    }
+
+    .cookdiv .detail {
+        font-size: 14px;
+    }
+}
