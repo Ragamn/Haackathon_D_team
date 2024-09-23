@@ -60,7 +60,7 @@
         </div>
 
         <div class="w-50 center">
-            <a href="/cook_create" class="submit">投稿</a>
+            <a href="/arrange_create" class="submit">投稿</a>
         </div>
 </div>
 </body>
