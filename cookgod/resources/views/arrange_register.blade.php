@@ -40,8 +40,8 @@
       <p>材料(1人前)</p>
       <div class="materials-container">
         <input type="text" id="name1" name="material[0]" class="material-input1" required size="10" />
-        <input type="text" id="name2" name="amount[0]" class="material-input2" required size="5" />
-      </div>
+        <input type="text" id="name2" name="amount[0]"  placeholder="大さじ1"class="material-input2" required size="5" />
+      </div> 
 
       <div id="additional-inputs"></div>
 
@@ -76,6 +76,34 @@
   <script>
   let inputCount = 1;
   let stepCount = 1;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // ローカルストレージから保存された材料と手順の数を取得
+    const inputCount = localStorage.getItem('inputCount') || 1;
+    const stepCount = localStorage.getItem('stepCount') || 1;
+
+    // 材料のフォームを復元
+    for (let i = 1; i < inputCount; i++) {
+      addInputInput();
+    }
+
+    // 手順のフォームを復元
+    for (let i = 1; i < stepCount; i++) {
+      addStepInput();
+    }
+  });
+
+  // 材料追加ボタンのイベントリスナー
+  document.getElementById('add-button').addEventListener('click', function() {
+      addMaterialInput();
+      localStorage.setItem('inputCount', document.querySelectorAll('.materials-container input').length / 2);
+    });
+
+    // 手順追加ボタンのイベントリスナー
+    document.getElementById('add-step-button').addEventListener('click', function() {
+      addStepInput();
+      localStorage.setItem('stepCount', document.querySelectorAll('#steps .label-input-group').length);
+    });
 
   document.getElementById('add-button').addEventListener('click', function() {
     const newInput = document.createElement('div');
