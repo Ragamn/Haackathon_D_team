@@ -10,6 +10,10 @@
     ); /* ナビゲーションバーの背景色 */
 }
 
+.menu {
+    z-index: 999;
+}
+
 /* ナビゲーションバーのスタイリング */
 #header {
     background: var(--background-navbar); /* 背景色をカスタムプロパティで設定 */
