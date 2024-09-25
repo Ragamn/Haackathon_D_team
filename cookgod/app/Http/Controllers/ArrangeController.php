@@ -14,7 +14,7 @@ class ArrangeController extends Controller
         var_dump($arrange);
         return view('index',compact('arrange'));
     }
-  public function arrangeregister(Request $request) {
+    public function arrangeregister(Request $request) {
         try {
             // セッションからデータを取得
             $name = $request->session()->get('name');
@@ -23,20 +23,21 @@ class ArrangeController extends Controller
             $amount = $request->session()->get('amount');
             $step = $request->session()->get('step');
             $description = $request->session()->get('description');
-            $logo_path = $request->session()->get('img');
+            $imgPath = $request->session()->get('img');
+            $cleanedImgPath = str_replace('public/tmp/', '', $imgPath);
 
             // 新しいArrangesモデルのインスタンスを作成
             $arrange = new Arranges();
             $arrange->cooking_id = $cook_name;
             $arrange->name = $name;
             $arrange->description = $description;
-            $arrange->image_path = $logo_path; // 画像パスはセッションから取得
+            $arrange->image_path = $cleanedImgPath; // 画像パスはセッションから取得
 
             // データベースに保存
             $arrange->save();
 
             // 登録したarrangeのIDを取得
-            $arrange_id = Arranges::where('image_path', $logo_path)->value('arrange_id');
+            $arrange_id = Arranges::where('image_path', $cleanedImgPath)->value('arrange_id');
 
             // MaterialsとProcessesの保存処理
             foreach ($material as $index => $mat) {
@@ -54,15 +55,29 @@ class ArrangeController extends Controller
                 $newProcess->description = $stp;
                 $newProcess->save();
             }
-
+            
             // セッションのデータを削除
             $request->session()->forget(['name', 'cookname', 'material', 'amount', 'step', 'description', 'img']);
 
-            // 正常に処理が完了した場合のリダイレクト
-            return redirect('/')->with('msg', '正しく登録されました！');
+            // 画像のパスを取得
+            $imagePath = storage_path('app/' . $imgPath);
+            $newPath = storage_path('app/public/img/' . basename($imagePath));
+            if (file_exists($imagePath)) {
+                if (!rename($imagePath, $newPath)) {
+                    // 画像の移動に失敗した場合のエラーハンドリング
+                    Log::error('画像の移動に失敗しました。', ['imagePath' => $imagePath, 'newPath' => $newPath]);
+                    return redirect('/')->with('msg', '画像の移動に失敗しました。');
+                }
+                return redirect('/')->with('msg', '成功');
+            } else {
+                // 画像が存在しない場合のエラーハンドリング
+                Log::error('画像が見つかりませんでした。', ['imagePath' => $imagePath]);
+                return redirect('/')->with('msg', '画像が見つかりませんでした。');
+            }
         } catch (\Exception $e) {
-            // エラーメッセージを表示
-            return redirect('/')->with('msg', '登録中にエラーが発生しました: ' . $e->getMessage());
+            // 例外が発生した場合のエラーハンドリング
+            Log::error('エラーが発生しました: ' . $e->getMessage(), ['exception' => $e]);
+            return redirect('/')->with('msg', 'エラーが発生しました: ' . $e->getMessage());
         }
     }
 
