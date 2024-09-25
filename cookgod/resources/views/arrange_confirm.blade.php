@@ -29,12 +29,13 @@
 <div class="flex-row">
         <span class="tx-md">材料</span><br>
         <p class="cookname">
-            @if(session('material'))
-                @foreach(session('material') as $material)
-                    {{ $material }}<br>
+            @if(session('material') && session('amount'))
+                @foreach(session('material') as $index => $material)
+                    {{ $material }}: {{ session('amount')[$index]}}<br>
                 @endforeach
             @endif
         </p>
+        
 </div>
         <div class="flex-row">
         <span class="tx-md">作り方・手順</span><br>
@@ -60,7 +61,7 @@
         </div>
 
         <div class="w-50 center">
-            <a href="/cook_create" class="submit">投稿</a>
+            <a href="/arrange_create" class="submit">投稿</a>
         </div>
 </div>
 </body>
