@@ -12,19 +12,20 @@
     @include('layouts.header')
   </header>
 
+  
   <div class="container">
       <!-- 左側：1位 -->
       <div class="left">
         <h1>1位</h1>
-        <img src="../../img/karaage.png" alt="1位の画像" />
-        <p class="mesi">からあげ</p>
+        <img src="{{ asset('storage/img/'.$top[0]->image_path) }}" alt="1位の画像" />
+        <p class="mesi">{{ $top[0]->name }}</p>
       </div>
 
       <!-- 右側：2位 -->
       <div class="right">
         <h1>2位</h1>
-        <img src="../../img/karaage.png" alt="2位の画像" />
-        <p class="mesi">麻婆豆腐</p>
+        <img src="{{ asset('storage/img/'.$top[1]->image_path) }}"  alt="2位の画像" />
+        <p class="mesi">{{ $top[1]->name}}</p>
       </div>
     </div>
 

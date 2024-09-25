@@ -1,6 +1,7 @@
 body {
     background-color: bisque;
     font-family: "Merriweather", serif;
+    margin: 0;
 }
 .input-file .preview {
     background-image: url(/hoge.jpg);

@@ -4,10 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\HTtp\Controllers\CookController;
 use App\HTtp\Controllers\ArrangeController;
 
-Route::get('/', function () {
-    $msg = session('msg', '');
-    return view('index', ['msg' => $msg]);
-});
+Route::get('/', [CookController::class, 'index']);
 Route::get('/cook_register', function () {
     return view('cook_register');
 });
