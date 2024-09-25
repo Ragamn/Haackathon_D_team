@@ -7,11 +7,12 @@ use App\Models\Arranges;
 use App\Models\Cooks;
 use App\Models\Materials;
 use App\Models\Processes;
+use Illuminate\Support\Facades\Log;
+
 class ArrangeController extends Controller
 {
     public function index(Request $request) {
         $arrange = Arranges::all();
-        var_dump($arrange);
         return view('index',compact('arrange'));
     }
     public function arrangeregister(Request $request) {
@@ -51,8 +52,8 @@ class ArrangeController extends Controller
             foreach ($step as $index => $stp) {
                 $newProcess = new Processes();
                 $newProcess->arrange_id = $arrange_id;
-                $newProcess->step_number = $index + 1;
-                $newProcess->description = $stp;
+                $newProcess->process_num = $index + 1;
+                $newProcess->process = $stp;
                 $newProcess->save();
             }
             

@@ -12,7 +12,11 @@
     @include('layouts.header')
   </header>
 
-  
+  @if (session('msg'))
+    <div class="alert alert-success">
+      {{ session('msg') }}
+    </div>
+  @endif
   <div class="container">
       <!-- 左側：1位 -->
       <div class="left">
