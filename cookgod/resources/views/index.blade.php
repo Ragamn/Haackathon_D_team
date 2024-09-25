@@ -37,11 +37,12 @@
         <div class="inner">
             <p class="list-title">人気順一覧</p>
             <div class="flex-margin">
+            @foreach($cooks as $item)
                 <div class="flex-margin-child">
                     <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
+                        <img src="{{ asset('storage/img/'.$cooks[$item]->image_path) }}" alt="">
                         <div class="flex">
-                            <p class="name">からあげ</p>
+                            <p class="name">{{ $cooks[$item]->name }}</p>
                             <button class="bookmark">&#10084;</button>
                         </div>
                         <p class="detail">
@@ -49,42 +50,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
+            @endforeach
             </div>
 
             <p class="list-title">新着順一覧</p>
