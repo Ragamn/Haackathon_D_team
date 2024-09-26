@@ -12,130 +12,66 @@
     @include('layouts.header')
   </header>
 
+  @if (session('msg'))
+    <div class="alert alert-success">
+      {{ session('msg') }}
+    </div>
+  @endif
   <div class="container">
       <!-- 左側：1位 -->
       <div class="left">
         <h1>1位</h1>
-        <img src="../../img/karaage.png" alt="1位の画像" />
-        <p class="mesi">からあげ</p>
+        <img src="{{ asset('storage/img/'.$top[0]->image_path) }}" alt="1位の画像" />
+        <p class="mesi">{{ $top[0]->name }}</p>
       </div>
 
       <!-- 右側：2位 -->
       <div class="right">
         <h1>2位</h1>
-        <img src="../../img/karaage.png" alt="2位の画像" />
-        <p class="mesi">麻婆豆腐</p>
+        <img src="{{ asset('storage/img/'.$top[1]->image_path) }}"  alt="2位の画像" />
+        <p class="mesi">{{ $top[1]->name}}</p>
       </div>
     </div>
 
   <div id="content">
         <div class="inner">
-            <p class="list-title">人気順一覧</p>
+            <p class="list-title">料理人気順</p>
             <div class="flex-margin">
+            @foreach($cooks as $item)
                 <div class="flex-margin-child">
                     <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
+                        <img src="{{ asset('storage/img/'.$item->image_path) }}" alt="">
                         <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
+                            <p class="name">{{ $item->name }}</p>
                         </div>
                         <p class="detail">
                             ここに説明が入りますああああ
                         </p>
                     </div>
                 </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
+            @endforeach
             </div>
 
-            <p class="list-title">新着順一覧</p>
+            <p class="list-title">アレンジレシピ新着順</p>
             <div class="flex-margin">
-                <div class="flex-margin-child">
+                @foreach($arranges as $item)
+                <div class="flex-margin-child item" data-id="{{$item->arrange_id}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-image-path="{{$item->image_path}}">
                     <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
+                        <img src="{{ asset('storage/img/'.$item->image_path) }}" alt="">
                         <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
+                            <p class="name">{{ $item->name }}</p>
+                            <button class="bookmark save-button">&#10084;</button>
                         </div>
                         <p class="detail">
-                            ここに説明が入りますああああ
+                            {{$item->description}}
                         </p>
                     </div>
                 </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
   <script src="{{asset('js/list.js')}}"></script>
+  <script src="{{asset('js/favorite.js')}}"></script>
 </body>
 </html>

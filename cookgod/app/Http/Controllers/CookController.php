@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cooks;
+use App\Models\Arranges;
 class CookController extends Controller
 {
     public function index() {
-        $cooks = Cooks::all();
-        var_dump($cooks);
-        return view('index',compact('cooks'));
+        $cooks = Cooks::orderBy('impression', 'desc')->take(4)->get();
+        $top = Arranges::orderBy('impression', 'desc')->select('arrange_id','name', 'image_path',)->take(2)->get();
+        $arranges = Arranges::orderBy('created_at', 'desc')->take(4)->get();
+        // var_dump($cooks);
+        return view('index', compact('cooks', 'top', 'arranges'));
     }
     public function cookregister(Request $request) {
         // 新しいCooksモデルのインスタンスを作成
@@ -17,7 +20,9 @@ class CookController extends Controller
         
         // フォームから送信されたデータをモデルに設定
         $cook->name = $request->session()->get('name');
-        $cook->image_path = $request->session()->get('img');
+        $imgPath = $request->session()->get('img');
+        $cleanedImgPath = str_replace('public/tmp/', '', $imgPath);
+        $cook->image_path = $cleanedImgPath;
 
         try {
             // データベースに保存
