@@ -35,7 +35,7 @@
 
   <div id="content">
         <div class="inner">
-            <p class="list-title">人気順一覧</p>
+            <p class="list-title">料理人気順</p>
             <div class="flex-margin">
             @foreach($cooks as $item)
                 <div class="flex-margin-child">
@@ -43,7 +43,6 @@
                         <img src="{{ asset('storage/img/'.$item->image_path) }}" alt="">
                         <div class="flex">
                             <p class="name">{{ $item->name }}</p>
-                            <button class="bookmark">&#10084;</button>
                         </div>
                         <p class="detail">
                             ここに説明が入りますああああ
@@ -53,18 +52,18 @@
             @endforeach
             </div>
 
-            <p class="list-title">新着順一覧</p>
+            <p class="list-title">アレンジレシピ新着順</p>
             <div class="flex-margin">
                 @foreach($arranges as $item)
-                <div class="flex-margin-child">
+                <div class="flex-margin-child item" data-id="{{$item->arrange_id}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-image-path="{{$item->image_path}}">
                     <div class="cookdiv">
                         <img src="{{ asset('storage/img/'.$item->image_path) }}" alt="">
                         <div class="flex">
                             <p class="name">{{ $item->name }}</p>
-                            <button class="bookmark">&#10084;</button>
+                            <button class="bookmark save-button">&#10084;</button>
                         </div>
                         <p class="detail">
-                            ここに説明が入りますああああ
+                            {{$item->description}}
                         </p>
                     </div>
                 </div>
@@ -73,5 +72,6 @@
         </div>
     </div>
   <script src="{{asset('js/list.js')}}"></script>
+  <script src="{{asset('js/favorite.js')}}"></script>
 </body>
 </html>
