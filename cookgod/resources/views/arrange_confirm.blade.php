@@ -57,7 +57,7 @@
     <div class="flex button-div">
 
         <div class="w-50 center">
-            <a href="/cook_register" class="back">戻る</a>
+            <a href="/arrange_register" class="back">戻る</a>
         </div>
 
         <div class="w-50 center">
