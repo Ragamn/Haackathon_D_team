@@ -106,12 +106,12 @@ body {
     background-color: #f2cd75; /* Light yellow background */
     border: 3px solid #000; /* Bold black border */
     border-radius: 10px; /* Rounded corners */
-    padding: 10px 20px; /* Spacing inside the button */
-    font-size: 24px; /* Larger font size */
+    padding: 5px 10px; /* Spacing inside the button */
+    font-size: 15px; /* Larger font size */
     font-weight: bold; /* Bold text */
     color: #000; /* Text color */
     cursor: pointer; /* Pointer cursor on hover */
-    font-family: 'Arial', sans-serif; /* Font family */
+    font-family: "Arial", sans-serif; /* Font family */
 }
 
 .registration-button:hover {

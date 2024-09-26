@@ -86,4 +86,11 @@ class CookController extends Controller
         $cooks = Cooks::orderBy('impression', 'desc')->get();
         return view('cook_ranking', compact('cooks'));
     }
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    $cooks = Cooks::where('name', 'LIKE', "%{$query}%")->get();
+    return response()->json($cooks);
+}
 }

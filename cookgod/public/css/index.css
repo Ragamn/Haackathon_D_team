@@ -96,7 +96,8 @@ form {
 
 .cookdiv .name {
     margin: 0 0 0 3%;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .cookdiv .detail {
