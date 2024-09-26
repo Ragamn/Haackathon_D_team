@@ -56,15 +56,14 @@
     border: none; /* ふちを無しに */
     font-size: 30px;
     cursor: pointer;
-    color: black; /* 通常時のハートの色 */
     transition: color 0.3s ease;
 }
 
 .bookmark.active {
-    color: rgb(255, 0, 0); /* 押されたときのハートの色 */
+    color: red; /* 押されたときのハートの色 */
 }
 
-.bookmark:not(.active) {
+.bookmark {
     color: rgb(185, 185, 185); /* 通常時のハートの色 */
 }
 
