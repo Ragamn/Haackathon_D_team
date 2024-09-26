@@ -6,6 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/cook_ranking.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <style>
+        .clickable-img {
+            cursor: pointer; /* クリック可能にするためのスタイル */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.flex-margin-child').forEach(function(element) {
+                element.addEventListener('click', function() {
+                    const cookingId = this.getAttribute('data-id');
+                    window.location.href = `/cook_arrange?id=${cookingId}`;
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -17,95 +32,24 @@
     </form>
     <div id="content">
         <div class="inner">
-            <p class="list-title">人気順一覧</p>
+            <p class="list-title">料理人気順</p>
             <div class="flex-margin">
-                <div class="flex-margin-child">
+              @foreach($cooks as $item)
+                <div class="flex-margin-child"data-id="{{ $item->cooking_id }}">
                     <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
+                        <img class="clickable-img" src="{{ asset('storage/img/'.$item->image_path) }}" alt="">
                         <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
+                            <p class="name">{{ $item->name }}</p>
                         </div>
                         <p class="detail">
-                            ここに説明が入りますああああ
+                            {{$item->description}}
                         </p>
                     </div>
                 </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
-                </div>
-                <div class="flex-margin-child">
-                    <div class="cookdiv">
-                        <img src="../../img/karaage.png" alt="">
-                        <div class="flex">
-                            <p class="name">からあげ</p>
-                            <button class="bookmark">&#10084;</button>
-                        </div>
-                        <p class="detail">
-                            ここに説明が入りますああああ
-                        </p>
-                    </div>
+              @endforeach
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{asset('js/list.js')}}"></script>
 </body>
 </html>

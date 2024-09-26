@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{asset('css/detail.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <title>detail</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,42 +15,28 @@
       @include('layouts.header')
     </header>
     <div class="all">
-    <h1>からあげModoKing</h1>
-    <div class="detail_img"><img src="からあげ.png" alt="" /></div>
+    <h1>{{$arrange->name}}</h1>
+    <div class="detail_img"><img src="{{asset('storage/img/'.$arrange->image_path)}}" alt="" /></div>
     <h2>材料</h2>
+    @foreach($materials as $item)
     <div class="material">
       <ul>
-        <li>鶏肉</li>
-        <li>500g</li>
+        <li>{{$item->material_name}}</li>
+        <li>{{$item->amount}}</li>
       </ul>
     </div>
-    <div class="material">
-      <ul>
-        <li>小麦粉</li>
-        <li>50g</li>
-      </ul>
-    </div>
-    <div class="material">
-      <ul>
-        <li>油</li>
-        <li>1L</li>
-      </ul>
-    </div>
+    @endforeach
     <hr />
     <h2>作り方</h2>
+    @foreach($processes as $item)
     <div class="make_text">
-      <p>油を鍋に注ぎ温める</p>
+      <p>{{$item->process}}</p>
     </div>
-    <div class="make_text">
-      <p>鶏肉に小麦粉をまぶす</p>
-    </div>
-    <div class="make_text">
-      <p>油で揚げる</p>
-    </div>
+    @endforeach
     <hr />
     <h2>説明、補足</h2>
     <div class="others_text">
-      <p>特になし</p>
+      <p>{{$arrange->description}}</p>
     </div>
     </div>
   </body>
