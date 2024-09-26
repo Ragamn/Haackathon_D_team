@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
+  <style>
+    img {
+      cursor: pointer; /* クリック可能にするためのスタイル */
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -38,6 +43,7 @@
           const img = document.createElement('img');
           img.src = 'storage/img/' + item.imagePath; // 画像のパスを適宜変更
           img.alt = '料理の写真';
+          img.dataset.id = item.id; // 画像にIDを設定
           imageSectionDiv.appendChild(img);
 
           const textSectionDiv = document.createElement('div');
@@ -107,6 +113,12 @@
 
             // 表示を更新
             displayFavorites();
+          });
+
+          // 画像のクリックイベントを設定
+          img.addEventListener('click', (event) => {
+            const id = event.target.dataset.id;
+            window.location.href = `/detail?id=${id}`;
           });
         });
       };

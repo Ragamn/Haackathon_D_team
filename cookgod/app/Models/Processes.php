@@ -39,6 +39,6 @@ class Processes extends Model
     // アレンジとのリレーションシップ
     public function arrange()
     {
-        return $this->belongsTo(Arrange::class, 'arrange_id', 'arrange_id');
+        return $this->belongsTo(Arranges::class, 'arrange_id', 'arrange_id');
     }
 }

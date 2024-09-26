@@ -81,4 +81,9 @@ class CookController extends Controller
         $arrange = Cooks::select('cooking_id', 'name')->get()->toArray();
         return view('arrange_register',compact('arrange'));
     }
+
+    public function ranking() {
+        $cooks = Cooks::orderBy('impression', 'desc')->get();
+        return view('cook_ranking', compact('cooks'));
+    }
 }
