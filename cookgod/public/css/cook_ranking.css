@@ -7,8 +7,12 @@ body {
     margin: 0;
 }
 
-.center { text-align: center; }
-.flex { display: flex; }
+.center {
+    text-align: center;
+}
+.flex {
+    display: flex;
+}
 
 .list-title {
     width: 10em;
@@ -19,11 +23,6 @@ body {
 
 input[type="text"] {
     width: 50%;
-    font-size: 26px;
-}
-
-input[type="submit"] {
-    width: 10%;
     font-size: 26px;
 }
 
@@ -115,12 +114,9 @@ form {
         width: 60%;
         font-size: 22px;
     }
-    
     input[type="submit"] {
-        width: 15%;
-        font-size: 22px;
+        font-size: 15px;
     }
-
 }
 
 @media (max-width: 960px) and (min-width: 431px) {
@@ -131,4 +127,35 @@ form {
     .cookdiv .detail {
         font-size: 14px;
     }
+}
+.form-container {
+    display: flex;
+    justify-content: center; /* Align items horizontally in the center */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Add space between input and button */
+    margin: 50px 0; /* Adjust margin as needed */
+}
+input[type="text"] {
+    width: 50%;
+    font-size: 26px;
+    padding: 5px; /* Add padding for better alignment */
+    box-sizing: border-box; /* Ensure padding doesn’t affect width */
+}
+.registration-button {
+    background-color: #f2cd75; /* Light yellow background */
+    border: 3px solid #000; /* Bold black border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 5px 15px; /* Spacing inside the button */
+    font-weight: bold; /* Bold text */
+    color: #000; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: "Arial", sans-serif; /* Font family */
+    text-align: center; /* Center the text horizontally */
+    line-height: normal; /* Ensure line-height does not affect vertical alignment */
+}
+.registration-button:hover {
+    background-color: #e0b864; /* Slightly darker yellow on hover */
+}
+.registration-button:active {
+    background-color: #d1a754; /* Even darker yellow when clicked */
 }

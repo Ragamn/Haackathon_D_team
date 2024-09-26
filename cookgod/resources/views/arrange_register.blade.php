@@ -14,7 +14,9 @@
   <header>
     @include('layouts.header')
   </header>
-
+<?php
+  $selectedId = request()->query('id');
+  ?>
   <div class="movable-container">
     <h1>アレンジ画面</h1>
 
@@ -24,10 +26,12 @@
           <input type="text" name="name" class="menu-input" value="{{session('name')}}">
         <p>参考にした料理を選択してください。</p>
         <select name="cookname" class="wide-select">
-          <option value="" selected>選択してください</option>
-          @foreach($arrange as $item)
-            <option value="{{ $item['cooking_id'] }}">{{ $item['name'] }}</option>
-          @endforeach
+        <option value="" {{ is_null($selectedId) ? 'selected' : '' }}>選択してください</option>
+        @foreach($arrange as $item)
+          <option value="{{ $item['cooking_id'] }}" {{ $item['cooking_id'] == $selectedId ? 'selected' : '' }}>
+            {{ $item['name'] }}
+          </option>
+        @endforeach
         </select>
 
       <!-- フォームで選択した画像 -->

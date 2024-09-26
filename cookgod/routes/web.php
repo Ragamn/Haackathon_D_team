@@ -31,4 +31,5 @@ Route::get('/cook_arrange',[ArrangeController::class,'getArrangesByCookingId']);
 Route::get('/arrange_list',[ArrangeController::class,'index']);
 Route::get('/detail',[ArrangeController::class,'getArrangeById']);
 
+Route::get('/search', [CookController::class, 'search'])->name('search');
 
