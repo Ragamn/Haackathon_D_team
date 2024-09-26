@@ -60,7 +60,7 @@ class ArrangeController extends Controller
                 $newProcess->save();
             }
             // セッションのデータを削除
-            $request->session()->forget(['name', 'cookname', 'material', 'amount', 'step', 'description', 'img']);
+            $request->session()->forget(['name', 'cookking_name','cookname', 'material', 'amount', 'step', 'description', 'img']);
 
             // 画像のパスを取得
             $imagePath = storage_path('app/' . $imgPath);
@@ -110,10 +110,12 @@ class ArrangeController extends Controller
         $step = $request->input('step');
         $description = $request->input('description');
 
+        $cookking_name= Cooks::where('cooking_id', $cook_name)->value('name');
         // 各フィールドの値をセッションに保存
         $request->session()->put([
             'name' => $name,
             'cookname' => $cook_name,
+            'cookking_name' => $cookking_name,
             'material' => $material,
             'amount' => $amount,
             'step' => $step,
@@ -135,11 +137,12 @@ class ArrangeController extends Controller
     public function getArrangesByCookingId(Request $request)
     {
       $cooking_id = $request->get('id');
+      $cooks = Cooks::where('cooking_id', $cooking_id)->first();
       // cooking_idを条件にimpressionの降順で値を取得
       $arranges = Arranges::where('cooking_id', $cooking_id)
                             ->orderBy('created_at', 'desc')
                             ->get();
-      return view('arrange_list',['arranges'=>$arranges]);
+      return view('arrange_list',['arranges'=>$arranges,'cooks'=>$cooks]);
     
   }
       public function getArrangeById(Request $request)
