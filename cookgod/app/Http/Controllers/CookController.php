@@ -8,7 +8,7 @@ use App\Models\Arranges;
 class CookController extends Controller
 {
     public function index() {
-        $cooks = Cooks::orderBy('created_at', 'desc')->take(4)->get();
+        $cooks = Cooks::orderBy('impression', 'desc')->take(4)->get();
         $top = Arranges::orderBy('impression', 'desc')->select('arrange_id','name', 'image_path',)->take(2)->get();
         $arranges = Arranges::orderBy('created_at', 'desc')->take(4)->get();
         // var_dump($cooks);
