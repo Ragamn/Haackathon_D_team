@@ -30,7 +30,7 @@
     <h2>作り方</h2>
     @foreach($processes as $item)
     <div class="make_text">
-      <p>{{$item->process}}</p>
+      <p>{{$item->process_num."　".$item->process}}</p>
     </div>
     @endforeach
     <hr />

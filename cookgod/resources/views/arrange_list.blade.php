@@ -34,7 +34,13 @@
 $arrange_id = $_GET['id'] ?? null;
 ?>
 <div class="registration-container">
-  <h1 class="registration-text">アレンジレシピ</h1>
+    <h1 class="registration-text">
+    @if(isset($cooks))
+      {{$cooks->name}}アレンジレシピ
+    @else
+      アレンジレシピ
+    @endif
+  </h1>
   <button class="registration-button" onclick="window.location.href='/arrange_register?id=<?php echo $arrange_id; ?>'">レシピ投稿</button>
 </div>
     

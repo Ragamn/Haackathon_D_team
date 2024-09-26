@@ -101,13 +101,14 @@ p {
     max-height: 300px;
 }
 .materials-container {
-    gap: 10px; /* テキストボックス間の隙間 */
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 .material-group {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .material-input1 {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
@@ -116,7 +117,6 @@ p {
     gap: 10px;
     width: 30%;
 }
-
 .material-input2 {
     border: 1.5px solid #000; /* 枠線を黒色に設定 */
     min-width: 100px; /* 幅を設定 */

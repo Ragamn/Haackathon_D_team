@@ -20,7 +20,7 @@
         <p class="cookname">{{session('name')}}
         </p>
         <span class="tx-md">選択した料理</span><br>
-        <p class="cookname">{{session('cookname')}}
+        <p class="cookname">{{session('cookking_name')}}
         </p>
     </div>
     <img class="cookimg" src='{{ asset("storage/tmp/" . $filename ) }}' alt="Uploaded Image">
@@ -61,8 +61,14 @@
         </div>
 
         <div class="w-50 center">
-            <a href="/arrange_create" class="submit">投稿</a>
+            <a href="/arrange_create" class="submit"id="submit-button">投稿</a>
         </div>
 </div>
+<script>
+  document.getElementById('submit-button').addEventListener('click', function() {
+    localStorage.removeItem('stepCount');
+    localStorage.removeItem('inputCount');
+  });
+</script>
 </body>
 </html>
