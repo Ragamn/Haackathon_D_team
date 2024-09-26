@@ -1,7 +1,17 @@
-* {
+/* favorite.css */
+html,
+body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.bookmark {
+    color: gray; /* デフォルトの色を灰色に設定 */
+}
+.bookmark.active {
+    color: red; /* アクティブ状態の色を赤に設定 */
 }
 
 .all {
@@ -59,14 +69,15 @@
     border: none; /* ふちを無しに */
     font-size: 30px;
     cursor: pointer;
+    color: black; /* 通常時のハートの色 */
     transition: color 0.3s ease;
 }
 
 .bookmark.active {
-    color: red; /* 押されたときのハートの色 */
+    color: rgb(255, 0, 0); /* 押されたときのハートの色 */
 }
 
-.bookmark {
+.bookmark:not(.active) {
     color: rgb(185, 185, 185); /* 通常時のハートの色 */
 }
 
@@ -78,46 +89,4 @@
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 10px;
-}
-html,
-body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.registration-container {
-    display: flex;
-    justify-content: space-between; /* Spreads the text and button to the edges */
-    align-items: center; /* Vertically aligns the content */
-    padding: 10px;
-    background-color: #fff9f3; /* Background color similar to the image */
-}
-
-.registration-text {
-    font-size: 24px; /* Adjust font size */
-    font-weight: normal; /* Normal weight for the Japanese text */
-    text-decoration: underline; /* Underline the text */
-    margin: 0; /* Remove default margin */
-}
-
-.registration-button {
-    background-color: #f2cd75; /* Light yellow background */
-    border: 3px solid #000; /* Bold black border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 10px 20px; /* Spacing inside the button */
-    font-size: 24px; /* Larger font size */
-    font-weight: bold; /* Bold text */
-    color: #000; /* Text color */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-family: 'Arial', sans-serif; /* Font family */
-}
-
-.registration-button:hover {
-    background-color: #e0b864; /* Slightly darker yellow on hover */
-}
-
-.registration-button:active {
-    background-color: #d1a754; /* Even darker yellow when clicked */
 }

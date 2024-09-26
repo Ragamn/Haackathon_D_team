@@ -7,14 +7,18 @@ use App\Models\Arranges;
 use App\Models\Cooks;
 use App\Models\Materials;
 use App\Models\Processes;
+use App\Models\Keys;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+
 
 class ArrangeController extends Controller
 {
     public function index(Request $request) {
-        $arrange = Arranges::all();
-        return view('index',compact('arrange'));
-    }
+    // Arrangesモデルのデータをcreated_atの降順で取得
+    $arranges = Arranges::orderBy('created_at', 'desc')->get();
+    return view('arrange_list', compact('arranges'));
+}
     public function arrangeregister(Request $request) {
         try {
             // セッションからデータを取得
@@ -39,7 +43,6 @@ class ArrangeController extends Controller
 
             // 登録したarrangeのIDを取得
             $arrange_id = Arranges::where('image_path', $cleanedImgPath)->value('arrange_id');
-
             // MaterialsとProcessesの保存処理
             foreach ($material as $index => $mat) {
                 $newMaterial = new Materials();
@@ -56,7 +59,6 @@ class ArrangeController extends Controller
                 $newProcess->process = $stp;
                 $newProcess->save();
             }
-            
             // セッションのデータを削除
             $request->session()->forget(['name', 'cookname', 'material', 'amount', 'step', 'description', 'img']);
 
@@ -129,5 +131,38 @@ class ArrangeController extends Controller
         $filename = pathinfo($path, PATHINFO_BASENAME);
     
         return view('arrange_confirm',['filename' => $filename]);
+    }
+    public function getArrangesByCookingId(Request $request)
+    {
+      $cooking_id = $request->get('id');
+      // cooking_idを条件にimpressionの降順で値を取得
+      $arranges = Arranges::where('cooking_id', $cooking_id)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+      return view('arrange_list',['arranges'=>$arranges]);
+    
+  }
+      public function getArrangeById(Request $request)
+    {
+      $arrange_id = $request->get('id');
+    
+      // arrange_idを条件に一件データを取得
+      $arrange = Arranges::where('arrange_id', $arrange_id)->first();
+
+      // impressionをプラス1する
+      if ($arrange) {
+        $arrange->impression += 1;
+        $arrange->save();
+      }
+    
+      // arrange_idを条件にmaterialsとprocessesから値を取得
+      $materials = Materials::where('arrange_id', $arrange_id)->orderBy('material_id','asc')->get();
+      $processes = Processes::where('arrange_id', $arrange_id)->orderBy('process_id','asc')->get();
+      
+      return view('cook_detail', [
+        'arrange' => $arrange,
+        'materials' => $materials,
+        'processes' => $processes
+      ]);
     }
 }
